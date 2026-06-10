@@ -1,0 +1,16 @@
+===================================================================================================
+create an android application which is basically a "JSON Validator" 
+
+The app name is "JSON Validator"
+User has option to select a single JSON file or a folder .
+On select and clicking on "Start Validation" button, it should validate is the files are json syntax correct.
+At the bottom it should have a list box with the status of the validation.
+It should show the file path and statsu.
+If file is OK, then status should be OK
+If file is not OK.  It should show the filename, line number and error on that line
+develop the app in java (not kotlin)
+Give it as a single prompt to give to an agent to achieve this
+
+===================================================================================================
+
+

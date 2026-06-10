@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JSON Validator</string>
+    <string name="title_main">JSON Validator</string>
+    <string name="btn_select_file">Select JSON File</string>
+    <string name="btn_select_folder">Select Folder</string>
+    <string name="btn_start_validation">Start Validation</string>
+    <string name="text_no_selection">No file or folder selected</string>
+    
+    <!-- Summary labels -->
+    <string name="label_total_files">Total Files</string>
+    <string name="label_valid_files">Valid Files</string>
+    <string name="label_invalid_files">Invalid Files</string>
+    
+    <!-- Status messages -->
+    <string name="status_ready">Ready to validate</string>
+    <string name="status_validating">Validating JSON files...</string>
+    <string name="status_done">Validation completed</string>
+</resources>
