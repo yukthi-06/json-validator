@@ -17,6 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.example.jsonvalidator.ui.HelpActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.jsonvalidator.ui.AboutActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

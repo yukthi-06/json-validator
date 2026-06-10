@@ -2,9 +2,40 @@ plugins {
     id 'com.android.application'
 }
 
+def getGitSha() {
+    try {
+        def text = 'git rev-parse --short HEAD'.execute().text.trim()
+        return text.isEmpty() ? "N/A" : text
+    } catch (Exception e) {
+        return "N/A"
+    }
+}
+
+def getGitShaFull() {
+    try {
+        def text = 'git rev-parse HEAD'.execute().text.trim()
+        return text.isEmpty() ? "N/A" : text
+    } catch (Exception e) {
+        return "N/A"
+    }
+}
+
+def getGitTag() {
+    try {
+        def text = 'git describe --tags'.execute().text.trim()
+        return text.isEmpty() ? "N/A" : text
+    } catch (Exception e) {
+        return "N/A"
+    }
+}
+
 android {
     namespace 'com.example.jsonvalidator'
     compileSdk 34
+
+    buildFeatures {
+        buildConfig true
+    }
 
     defaultConfig {
         applicationId "com.example.jsonvalidator"
@@ -14,6 +45,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        buildConfigField "String", "BUILD_TIMESTAMP", "\"${new Date().format('yyyyMMdd.HHmmss', TimeZone.getTimeZone('Asia/Kolkata'))}\""
+        buildConfigField "String", "GIT_SHA", "\"${getGitSha()}\""
+        buildConfigField "String", "GIT_SHA_FULL", "\"${getGitShaFull()}\""
+        buildConfigField "String", "GIT_TAG", "\"${getGitTag()}\""
     }
 
     buildTypes {

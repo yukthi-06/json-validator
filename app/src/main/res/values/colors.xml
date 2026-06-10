@@ -22,4 +22,5 @@
     <color name="text_secondary">#000000</color>
     <color name="text_muted">#000000</color>
     <color name="border_color">#000000</color>
+    <color name="divider">#000000</color>
 </resources>

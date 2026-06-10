@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Storage Settings"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default Validation Path"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter path for default scanning"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_muted"
+        android:inputType="text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save Settings"
+        android:textColor="@color/on_primary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Note: Changes to the default scanning path will take effect when select buttons are used. Settings are saved to settings.json."
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+</LinearLayout>
