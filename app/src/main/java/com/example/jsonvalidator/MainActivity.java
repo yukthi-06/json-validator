@@ -35,6 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().addOnBackStackChangedListener(() -> {
             updateActionBarNavigation(toggle);
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if (currentFragment instanceof SettingsFragment) {
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setTitle(R.string.title_settings);
+                }
+                navigationView.setCheckedItem(R.id.nav_settings);
+            } else {
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setTitle(R.string.app_name);
+                }
+                navigationView.setCheckedItem(R.id.nav_main);
+            }
         });
         updateActionBarNavigation(toggle);
 
@@ -42,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment = null;
             int id = item.getItemId();
             if (id == R.id.nav_main) {
+                getSupportFragmentManager().popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 fragment = new ValidationFragment();
                 if (getSupportActionBar() != null) {
                     getSupportActionBar().setTitle(R.string.app_name);
@@ -58,9 +71,12 @@ public class MainActivity extends AppCompatActivity {
             }
             
             if (fragment != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragment)
-                        .commit();
+                androidx.fragment.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, fragment);
+                if (!(fragment instanceof ValidationFragment)) {
+                    transaction.addToBackStack(null);
+                }
+                transaction.commit();
             }
             drawer.closeDrawer(GravityCompat.START);
             return true;
