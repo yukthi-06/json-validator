@@ -71,8 +71,16 @@ public class MainActivity extends AppCompatActivity {
             }
             
             if (fragment != null) {
-                androidx.fragment.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragment);
+                androidx.fragment.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if (fragment instanceof SettingsFragment) {
+                    transaction.setCustomAnimations(
+                            R.anim.slide_in_right,
+                            R.anim.slide_out_left,
+                            R.anim.slide_in_left,
+                            R.anim.slide_out_right
+                    );
+                }
+                transaction.replace(R.id.fragment_container, fragment);
                 if (!(fragment instanceof ValidationFragment)) {
                     transaction.addToBackStack(null);
                 }
